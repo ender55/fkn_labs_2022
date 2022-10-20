@@ -9,7 +9,7 @@ class MarvelLogoWidget extends StatelessWidget {
         alignment: Alignment.topCenter,
         child: Image.network(
               'https://raw.githubusercontent.com/effectiveband/fkn_labs_2022/main/Images/marvel.png',
-              height: 50,
+              height: 40,
               ),
         );
   }

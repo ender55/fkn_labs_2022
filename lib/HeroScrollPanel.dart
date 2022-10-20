@@ -12,7 +12,7 @@ class HeroScrollPanel extends StatelessWidget {
         alignment: Alignment.center,
         child: CarouselSlider.builder(
           options: CarouselOptions(
-            height: 600,
+            height: 1000,
             enlargeCenterPage: true,
             enableInfiniteScroll: false,
           ),
@@ -27,7 +27,7 @@ class HeroScrollPanel extends StatelessWidget {
   Widget buildPanel(String urlImage, int index) => Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            fit: BoxFit.cover,
+            fit: BoxFit.fill,
             image: AssetImage(urlImage),
           ),
           borderRadius: BorderRadius.circular(15),
@@ -37,16 +37,16 @@ class HeroScrollPanel extends StatelessWidget {
           Container(
             margin: const EdgeInsets.symmetric(vertical: 20),
             alignment: Alignment.bottomCenter,
-            child: ChooseName(index),
+            child: FittedBox(child: chooseName(index)),
           ),
         ]),
       );
 
-  Widget ChooseName(int index) {
+  Widget chooseName(int index) {
     var name = heroNameList[index];
     return Text(
       name,
-      style: TextStyle(
+      style: const TextStyle(
           fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),
     );
   }

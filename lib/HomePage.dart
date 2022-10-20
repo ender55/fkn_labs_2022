@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'ChooseHeroTitleWidget .dart';
 import 'HeroScrollPanel.dart';
-import 'TopBarWidget.dart';
+import 'MarvelLogoWidget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,15 +10,19 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.black87,
-          body: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const <Widget>[
-                TopBarWidget(),
-                HeroScrollPanel(),
-              ]),
+          body: Container(
+            margin: const EdgeInsets.only(top: 20, bottom: 50),
+            child: Column(
+                children: const <Widget>[
+                  Expanded(flex: 1, child: MarvelLogoWidget()),
+                  Expanded(flex: 1, child: ChooseHeroTitleWidget()),
+                  Expanded(flex: 10, child: HeroScrollPanel()),
+                ]),
+          ),
         ),
       ),
     );
